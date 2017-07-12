@@ -158,6 +158,16 @@ function barChart(cat, qnt, title,id){
                 .style("text-anchor", "end")
                 .text(function (d){ return d[x] + ": " + floatFormat(d[y]); });
 
+            // text explanation
+            var text = "The categories in output are limited to 20, ordered for decreasing values. The last category 'others' contains the sum of the values of all the excluded categories."
+            var p =  document.getElementById("explanation")
+            var pg =  document.getElementById("explanation_plain")
+            if (p) {
+                p.innerHTML = text;
+            }
+            if (pg) {
+                pg.innerHTML = text;
+            }
           });
         }
 

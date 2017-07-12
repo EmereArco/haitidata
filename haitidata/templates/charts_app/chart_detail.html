@@ -56,6 +56,8 @@
     <div id="chart_area_plain"></div>
     <h2>Abstract</h2>
     <p>{{ object.abstract }}</p>
+    <br>
+    <p id="explanation_plain" class="text-justify" style="font-size: small; margin:0" ></p>
     <div class="documents-actions">
       {% include "_actions.html" %}
     </div>
@@ -178,6 +180,8 @@
                   <div>
                       <h5>Abstract</h5>
                       <p id="abstract"></p>
+                      <br>
+                      <p id="explanation" class="text-justify" style="font-size: small; margin:0" ></p>
                   </div>
               </div>
               <div class="modal-footer">
@@ -213,7 +217,7 @@ function attachAbstract(){
 }
 
 function chart_title(){
-    if (agg == dict_title_agg[2]){
+    if (agg == "2"){
         suggestedTitle = dict_title_agg[agg] + " of elements for "  + category;
     } else {
         var title = dict_title_agg[agg]
@@ -252,10 +256,10 @@ title_detail();
 
 // Set-up the export button
 d3.select('#saveButton').on('click', function(){
-    var svg_img = document.getElementById("chart_svg");
+    var svg_img = document.getElementById("chart_svgchart_area_plain");
     console.log(svg_img)
-	var svgString = getSVGString(document.getElementById("chart_svg"));
-	svgString2Image( svgString, 300, 250, 'png', save ); // passes Blob and filesize String to the callback
+	var svgString = getSVGString(document.getElementById("chart_svgchart_area_plain"));
+	svgString2Image( svgString, 750, 500, 'png', save ); // passes Blob and filesize String to the callback
 
 	function save( dataBlob, filesize ){
 		saveAs( dataBlob, 'D3 vis exported to PNG.png' ); // FileSaver.js function

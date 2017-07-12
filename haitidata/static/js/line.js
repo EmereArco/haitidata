@@ -65,7 +65,7 @@ function lineChart(cat, qnt, title, id){
             // adjust margin and x axis title
             var maxh = 15;
             if (rotate == 1) {
-                d3.select(this).select(".x-axis").selectAll("text").each(function(){
+                d3.select(this).select(xAxis_call).selectAll("text").each(function(){
                     if (this.getBBox().width > maxh)
                         maxh = this.getBBox().width;
             });};
@@ -164,6 +164,17 @@ function lineChart(cat, qnt, title, id){
                 .duration(500)
                 .style("opacity", 0);
              });
+
+          // text explanation
+            var text = "The categories in output are limited to 20, ordered for decreasing values. The last category 'others' contains the sum of the values of all the excluded categories."
+            var p =  document.getElementById("explanation")
+            if (p) {
+                p.innerHTML = text;
+            }
+            var pg =  document.getElementById("explanation_plain")
+            if (pg) {
+                pg.innerHTML = text;
+            }
 
                 });
     }
